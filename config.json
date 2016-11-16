@@ -1,0 +1,15 @@
+{
+	"view" : "web/template/views",
+	"engineName" : "jade",
+	"static" : {
+		"img" : "img",
+		"public" : "public"
+	},
+	"data" : {},
+	"settings" : "./settings.js",
+	"router" : "./router.js",
+	"web" : {
+		"icon" : "static/images/favicon.ico"
+	}
+}
+

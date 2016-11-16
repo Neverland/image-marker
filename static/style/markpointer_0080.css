@@ -1,0 +1,10 @@
+/*skin setting*/
+
+.mp_RT {  background: url(http://img1.cache.netease.com/cnews/img/gallery12/default.png) no-repeat 0 0;_background: none; width:18px; height: 30px;float:left; opacity: 0.9; }
+.mp_RB {  background: url(http://img1.cache.netease.com/cnews/img/gallery12/default.png) no-repeat 0 -30px;_background: none; width:18px; height: 30px;float:left; opacity: 0.9; }
+.mp_LT {  background: url(http://img1.cache.netease.com/cnews/img/gallery12/default.png) no-repeat 0 -60px;_background: none; width:18px; height: 30px;float:right; opacity: 0.9; }
+.mp_LB {  background: url(http://img1.cache.netease.com/cnews/img/gallery12/default.png) no-repeat 0 -90px;_background: none; width:18px; height: 30px;float:right; opacity: 0.9; }
+*html .mp_RT { filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://img1.cache.netease.com/cnews/img/gallery12/default/RT1.png");}
+*html .mp_RB { filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://img1.cache.netease.com/cnews/img/gallery12/default/RB1.png");}
+*html .mp_LT { filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://img1.cache.netease.com/cnews/img/gallery12/default/LT1.png");}
+*html .mp_LB { filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://img1.cache.netease.com/cnews/img/gallery12/default/LB1.png");}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+  <title>标注图集form</title>
+  <style type="text/css">
+	  html { overflow-y : scroll; }
+
+	  body { font : 12px/20px "微软雅黑", "黑体", "宋体"; color : #444; background : whitesmoke; }
+
+	  * { padding : 0; margin : 0; font-style : normal; list-style : none; }
+
+	  a { text-decoration : none; color : #000; }
+
+	  a:visited { color : #C39; }
+
+	  a:hover { color : red; text-decoration : underline; }
+
+	  a img { border : none; }
+
+	  table { border-collapse : collapse; }
+
+	  textarea { resize : none; font : 14px/20px "微软雅黑", "黑体", "宋体"; }
+
+	  textarea { border : solid 1px #ccc; padding : 2px; border-radius : 3px; }
+
+	  textarea:focus { border-color : #4D90FE; box-shadow : 0px 0px 5px #4D90FE; -moz-transition : all 0.8s linear; }
+
+	  .box { width : 920px; clear : both; margin : 0 auto 10px; }
+
+		  /* ==========cssreset========== */
+	  #form { width : 280px; height : 230px; overflow : hidden; background : whitesmoke; }
+
+	  #form p { margin-bottom : 10px; }
+	  #form input { line-height : 24px; height : 24px; vertical-align : middle; z-index : 3000; font-family: "微软雅黑"; border: 1px solid #CCCCCC; }
+	  #form label { line-height : 24px; height : 24px; width : 42px; display : inline-block; vertical-align : top; }
+	  #form textarea { height : 80px; width : 216px;  border: 1px solid #CCCCCC; }
+	  #form h5 { text-align : right; }
+	  #form h5 span { font-size : 14px; cursor : pointer; }
+	  #form input[type='text'] , #form input[type='url']{ width: 220px; display: inline-block; }
+	  #btn { text-align: right;  padding-right: 20px; }
+	  #btn input { border-color:#444; border-radius: 3px; cursor: pointer; }
+	  #saveAs { background: #DE1010; color: white;  width: 60px; }
+	  #saveAs:hover { background: white ; color: #DE1010 ; -moz-transition: all 0.2s linear; }
+  </style>
+</head>
+<body>
+<div id="form">
+       <form><p><label>标题 ：</label><input name="title" type="text" maxlength="112" pattern="^(?=\S)(.*)[\S]+$" required=" required" placeholder="1-112个字(必须)" autocompalete="off" size="32"/> * </p>
+	        <p>
+		        <label>描述 ：</label><textarea name="desc" maxlength="112" placeholder="输入112个描述文字"></textarea>
+	        </p>
+	        <p>
+		        <label>链接 ：</label><input name="link" type="url" maxlength="200" placeholder="http://www.baidu.com/" size="34" />
+	        </p>
+	        <p id="btn">
+		        <label> </label><input type="button" id="removeInfo" value="  删除  "/>
+		        <input type="submit" value="  保存  " id="saveAs" />
+	        </p>
+	    </form>
+</div>
+
+<script type="text/javascript">
+	//全部使用es5，和w3c DOM
+
+	(function (window, doc, undefined) {
+		var form = doc.forms[0],
+				elems = form.elements,
+				im = parent.im,
+				data={},
+				ws = im.module.ws,tk,
+				infos = parent.localStorage._markdata,
+				keys;
+
+		if(infos != "undefined"){
+
+			infos = JSON.parse(infos),
+			keys = Object.keys(infos);
+
+			keys.length>0 && keys.forEach(function(a,b){
+				//console.log('[name=' + a + ']', a, doc.querySelector('[name=' + a + ']'));
+				(doc.querySelector('[name=' + a + ']')).value = infos[a];
+			});
+		}
+		//console.log([].slice.call(elems,0));
+
+		[].slice.call(elems,0).forEach(function(a,b){
+			(a.type!=='hidden' && a.name && !a.id) && (
+				a.addEventListener('blur',function(){
+					ws.saveFormItemVale({name:a.name,value:a.value});
+				},false)
+			);
+
+			a.id && a.id==='removeInfo' && (
+				a.onclick=function(a){
+					ws.proxyRemoveInfos();
+					return false;
+				}.bind(this,a)
+			);
+		});
+		form.addEventListener('submit', function (e) {
+			e.preventDefault();
+			ws.acceptMarkInfo();
+			form.reset();
+			return false;
+		}, false);
+	})(this, document)
+</script>
+</body>
+</html>

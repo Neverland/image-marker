@@ -1,0 +1,24 @@
+.markPoint { position: absolute; background: #ccc; }
+.markArea { position: absolute; background: url(http://img1.cache.netease.com/cnews/img/gallery12/off.png) no-repeat center center; }
+*html .markArea { position: absolute; background: url(http://img1.cache.netease.com/cnews/img/gallery12/off1.png) no-repeat center center; }
+.markTips {  max-width: 200px;  position: absolute; text-align:left;  }
+.markWrap {  margin: 0 8px;   padding: 5px 10px 10px; overflow: hidden;  background: #712c69; opacity: 0.9; border-radius:5px 5px 5px 0; color:white; box-shadow: 2px 2px 2px #222; }
+*html .markTips { width: 200px; overflow: hidden; }
+.markTips dt { line-height: 30px; font-weight: bold; font-family: "\u5fae\u8f6f\u96c5\u9ed1"; text-shadow: 1px 1px 2px  #000; white-space: nowrap;}
+.markTips p { line-height: 18px;  text-align:justify; text-justify:inter-ideograph; padding: 10px 0px;  margin: 0; border-top: dotted 1px #ccc; }
+.markTips a { display: inline-block; float: right; text-align: right; color: #faeba8; text-decoration: underline; font-weight: bold; font-family: "\u5fae\u8f6f\u96c5\u9ed1"; text-decoration: none; }
+.markTips a:visited { color: #faeba8; }
+.markTips a:hover { color:#F9DF53; text-decoration: underline; }
+.markWrap { zoom:1;_width:164px; filter:alpha(opacity=90); }
+.markPointer { height: 30px; width:100%; clear: both; overflow: hidden; zoom:1; }
+
+/*skin setting*/
+
+.mp_RT {  background: url(http://img1.cache.netease.com/cnews/img/gallery12/default_001.png) no-repeat 0 0;_background: none; width:18px; height: 30px;float:left; opacity: 0.9; }
+.mp_RB {  background: url(http://img1.cache.netease.com/cnews/img/gallery12/default_001.png) no-repeat 0 -30px;_background: none; width:18px; height: 30px;float:left; opacity: 0.9; }
+.mp_LT {  background: url(http://img1.cache.netease.com/cnews/img/gallery12/default_001.png) no-repeat 0 -60px;_background: none; width:18px; height: 30px;float:right; opacity: 0.9; }
+.mp_LB {  background: url(http://img1.cache.netease.com/cnews/img/gallery12/default_001.png) no-repeat 0 -90px;_background: none; width:18px; height: 30px;float:right; opacity: 0.9; }
+*html .mp_RT { filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://img1.cache.netease.com/cnews/img/gallery12/RT1.png");}
+*html .mp_RB { filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://img1.cache.netease.com/cnews/img/gallery12/RB1.png");}
+*html .mp_LT { filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://img1.cache.netease.com/cnews/img/gallery12/LT1.png");}
+*html .mp_LB { filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://img1.cache.netease.com/cnews/img/gallery12/LB1.png");}

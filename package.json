@@ -1,0 +1,40 @@
+{
+  "name": "image-marker",
+  "version": "1.0.0",
+  "description": "image marker",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^3.4.8",
+    "jade": "^1.1.5",
+    "log4js": "^0.6.12",
+    "mongojs": "^0.10.1",
+    "uglifyjs-middleware": "^1.0.1"
+  },
+  "dependencies": {
+    "jade": "~1.1.5",
+    "express": "~3.4.8",
+    "uglifyjs-middleware": "~1.0.1",
+    "mongojs": "~0.10.0",
+    "log4js": "~0.6.12"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Neverland/image-marker.git"
+  },
+  "keywords": [
+    "nodejs",
+    "mongodb",
+    "sqlite",
+    "mysql"
+  ],
+  "author": "enix@foxmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Neverland/image-marker/issues"
+  },
+  "homepage": "https://github.com/Neverland/image-marker#readme"
+}
