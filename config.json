@@ -1,15 +1,23 @@
 {
-	"view" : "web/template/views",
-	"engineName" : "jade",
-	"static" : {
-		"img" : "img",
-		"public" : "public"
-	},
-	"data" : {},
-	"settings" : "./settings.js",
-	"router" : "./router.js",
-	"web" : {
-		"icon" : "static/images/favicon.ico"
-	}
+  "appName": "im",
+  "main": "server.js",
+  "view": "/web/template/views",
+  "engineName": "swig",
+  "static": {
+    "src": "/web/static"
+  },
+  "database": {
+    "mongo": "/db/mongodb",
+    "mysql": "/db/mysql",
+    "sqlite": [
+      "/db/sqlite",
+      "/data/image_marker.db"
+    ]
+  },
+  "settings": "./settings.js",
+  "router": "./router.js",
+  "web": {
+    "icon": "./web/static/images/favicon.ico"
+  }
 }
 

@@ -13,5 +13,5 @@ applications:
     mem: 64M
     instances: 1
     services:
-      mongo-ienix:
-        type: mongodb2
+      mysql-enix:
+        type: mysql

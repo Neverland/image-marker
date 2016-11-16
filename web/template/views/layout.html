@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>
+		{% block title %}
+			{{ title }}
+		{% endblock %}
+	</title>
+	<base target="_blank" />
+	{% block cssreset %}
+		<link rel="stylesheet" href="/style/reset.css" />
+	{% endblock %}
+	{% block static %}{% endblock %}
+</head>
+<body>
+	{% block content %}{% endblock %}
+</body>
+</html>

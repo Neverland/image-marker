@@ -1,0 +1,24 @@
+{% extends '../layout.html' %}
+
+	{% block static %}
+	<link rel="stylesheet" href="/style/main.css"/>
+	<style>
+		#loginout { line-height: 24px; font-size: 14px; width: 450px; overflow: hidden; margin: 0 auto; }
+		h1 { font-size: 18px; line-height: 40px; height: 40px; border-bottom: solid 1px #ccc; margin-bottom: 20px!important; padding-left: 20px; }
+	</style>
+	{% endblock %}
+
+	{% block content %}
+	<h1 class="box">登出</h1>
+
+	<div id="loginout">
+		{% if email %}
+			<p>
+				用户 <b>{{ email }}</b> 已登出！
+			</p>
+		{% endif %}
+	</div>
+
+
+	{% include "../copyright.html" %}
+	{% endblock %}

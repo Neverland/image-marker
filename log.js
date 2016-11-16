@@ -3,27 +3,43 @@
  */
 
 
-		var log4js = require('log4js'),
-			logger;
+var log4js = require('log4js');
 
-		// logger configure
-		log4js.configure({
-			appenders: [
-				{ type: 'console' }, {
-					type: 'dateFile',
-					filename: './logs/log',
-					pattern: "_yyyy-MM-dd",
-					maxLogSize: 1024,
-					alwaysIncludePattern: false,
-					backups: 4,
-					category: 'logger'
-				}
-			],
-			replaceConsole: true
-		});
+exports.all = function (app) {
+    log4js.configure({
+        appenders: [
+            {
+                type: 'dateFile',
+                filename: 'logs/log',
+                pattern: "-yyyy-MM-dd",
+                maxLogSize: 1024,
+                alwaysIncludePattern: false,
+                backups: 3,
+                category: 'all'
+            }
+        ],
+        replaceConsole: true
+    });
 
-			logger = log4js.getLogger('logger');
-			logger.setLevel('INFO');
+    app.use(
+        log4js.connectLogger(
+            log4js.getLogger('all'),
+            {level: 'auto'}
+        )
+    );
 
-		exports.logger =  logger;
-		exports.log4js =  log4js;
+};
+
+//logger = log4js.getLogger('logger');
+//logger.setLevel('INFO');
+
+exports.logger = function (name, level) {
+
+    var logger = log4js.getLogger(name || ' ');
+
+    logger.setLevel(level || 'info');
+    return logger;
+
+};
+
+exports.log4js = log4js;

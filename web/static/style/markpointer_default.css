@@ -1,0 +1,47 @@
+.markPoint { position: absolute; background: #ccc; }
+.markArea { position: absolute; background: url(/images/off.png) no-repeat center center; }
+*html .markArea { position: absolute; background: url(/images/off1.png) no-repeat center center; }
+.markTips {  max-width: 200px;  position: absolute; text-align:left;  }
+.markWrap {  margin: 0 8px;   padding: 5px 10px 10px; overflow: hidden;  background: #fff; opacity: 0.9; border-radius:5px 5px 5px 0; color:white; box-shadow: 2px 2px 10px #555; /*filter: drop-shadow(2px 2px 10px #000);*/ }
+*html .markTips { width: 200px; overflow: hidden; }
+.markTips dt { line-height: 20px; font-weight: bold; font-family: "\u5fae\u8f6f\u96c5\u9ed1"; text-shadow: 1px 1px 1px #ccc; color: #000;}
+.markTips p { color: #444; line-height: 18px;  text-align:justify; text-justify:inter-ideograph; padding: 10px 0px;  margin: 0; border-top: dotted 1px #ccc; }
+.markTips a { display: inline-block; float: right; text-align: right; color: #db1011; text-decoration: underline; font-weight: bold; font-family: "\u5fae\u8f6f\u96c5\u9ed1"; text-decoration: none; }
+.markTips a:visited { color: #db1011; }
+.markTips a:hover { color:#000; text-decoration: underline; }
+.markWrap { zoom:1;_width:164px; filter:alpha(opacity=90); }
+.markPointer { height: 30px; width:100%; clear: both; overflow: hidden; zoom:1; }
+
+/*skin setting*/
+
+.mp_RT {  background: url(/images/default.png) no-repeat 0 0;_background: none; width:18px; height: 30px;float:left; opacity: 0.9; }
+.mp_RB {  background: url(/images/default.png) no-repeat 0 -30px;_background: none; width:18px; height: 30px;float:left; opacity: 0.9; }
+.mp_LT {  background: url(/images/default.png) no-repeat 0 -60px;_background: none; width:18px; height: 30px;float:right; opacity: 0.9; }
+.mp_LB {  background: url(/images/default.png) no-repeat 0 -90px;_background: none; width:18px; height: 30px;float:right; opacity: 0.9; }
+*html .mp_RT { filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/default/RT1.png");}
+*html .mp_RB { filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/default/RB1.png");}
+*html .mp_LT { filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/default/LT1.png");}
+*html .mp_LB { filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/default/LB1.png");}
+
+.infoPreviewTop , .infoPreviewBottom { opacity: 0; font-size: 24px; left:0; position: absolute; width: 98%;
+	color: #ffffff; padding:10px ; line-height: 28px; text-shadow: 2px 2px 1px #000000;opacity: 1;  -webkit-transition: all 0.4s ease-in 0.5s; transition: all 0.4s ease-in 0.5s; font-style: normal; font-family: "\5FAE\8F6F\96C5\9ED1";  }
+.infoPreviewTop {
+	filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=black,endcolorstr=000,gradientType=1);
+
+	background: -webkit-linear-gradient(to bottom, #000000, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0.5) 50%, transparent) repeat scroll 0 0 transparent;
+	background: -moz-linear-gradient(to bottom, #000000, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0.5) 50%, transparent) repeat scroll 0 0 transparent;
+	background: -o-linear-gradient(to bottom, #000000, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0.5) 50%, transparent) repeat scroll 0 0 transparent;
+	background: -ms-linear-gradient(to bottom, #000000, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0.5) 50%, transparent) repeat scroll 0 0 transparent;
+	background: linear-gradient(to bottom, #000000, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0.5) 50%, transparent) repeat scroll 0 0 transparent;
+	top: 0;
+}
+.infoPreviewBottom {
+	filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=000,endcolorstr=black,gradientType=1);
+
+	background: -webkit-linear-gradient(to top, #000000, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0.5) 50%, transparent) repeat scroll 0 0 transparent;
+	background: -moz-linear-gradient(to top, #000000, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0.5) 50%, transparent) repeat scroll 0 0 transparent;
+	background: -o-linear-gradient(to top, #000000, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0.5) 50%, transparent) repeat scroll 0 0 transparent;
+	background: -ms-linear-gradient(to top, #000000, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0.5) 50%, transparent) repeat scroll 0 0 transparent;
+	background: linear-gradient(to top, #000000, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0.5) 50%, transparent) repeat scroll 0 0 transparent;
+	bottom: 0;
+}

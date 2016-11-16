@@ -1,0 +1,48 @@
+{% extends '../layout.html' %}
+	{% block cssreset %}{% endblock %}
+	{% block static %}
+		<script type="text/javascript">this.im || (this.im = {});</script>
+		<script src="/script/im/client/toolkit.min.js" type="text/javascript"></script>
+		<script src="/script/im/client/module_clip.min.js" type="text/javascript"></script>
+		<script src="/script/im/client/module_dialog.min.js" type="text/javascript"></script>
+		<script src="/script/im/client/module_workspace.min.js" type="text/javascript"></script>
+		<script src="/script/im/client/init.min.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="/style/im.css">
+	{% endblock %}
+
+	{% block content %}
+
+		<div id="mian" class="box">
+			<div id="header"><h1>&#22270;&#29255;&#26631;&#27880;<sub>1&period;8</sub><a id="help" href="#" target="_blank">
+				&#24110;&#21161;</a></h1><span id="pages"></span><input id="postPhoto" type="button" value=" 完成并发布 "><input
+					id="done" type="button" value=" 完成 "></div>
+			<div id="imageMarker"><img id="addInfo" src="/images/add.png">
+
+				<div id="container"></div>
+			</div>
+			<div id="info"></div>
+		</div>
+		<div id="information"><h5><span id="cancel"></span></h5>
+			<iframe id="markForm" src="/html/data_form.html" name="markForm" height="300" width="400" frameborder="0"></iframe>
+		</div>
+		<script id="infoTpl" type="text/html"><b>图片名称：</b><b style="color:red">' + decodeURIComponent(im.data.name|'noname') +
+			'</b>
+		<b style="margin-left:10px">图片尺寸：</b>宽:' + img.width + 'px 高:' + img.height + 'px'</script>
+		<!--*1.8
+		 1.修正了form项不能鼠标定位问题
+		 2.数据操作改为在iframe中进行
+		 3.禁用了拖拽选择文字，减少绘制标注框时误操作导致图片选中变蓝。
+		 4.数据传送方式改为location.hash(原为lacation.href),避免页面跳转。
+		*1.7
+		 1.大幅改进UI交互，
+		 2.增加css3过渡动画
+		 3.增加图说编辑框拖拽功能
+		 *1.6
+		  1.改进UI、交互，
+		  2.增加页码、图片名称、帮助
+		 *1.5 增加图说功能-->
+	{% include "../copyright.html" %}
+	{% endblock %}
+
+
+

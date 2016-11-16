@@ -1,21 +1,18 @@
 /**
- * Created by Administrator on 14-3-7.
+ * Created by enix@foxmail.com on 14-3-7.
  */
-	var cluster = require('cluster'),
-		http = require('http'),
-		app = require(process.cwd() + '/server.js').server,
-		CPUs = require('os').cpus().length;
 
+var path = require('path'),
+    child_process = require('child_process'),
+    mainjs = path.join(require(__dirname + '/config.json').main);
 
-	function createCluster(){
-		var i = CPUs;
-		for (;i--;) {
-			cluster.fork();
-		}
-	}
+!function (mod) {
 
-	cluster.isMaster ? createCluster() : app();
+    var worker = child_process.spawn('node', [mod]),
+        self = arguments.callee;
 
-	cluster.on('death', function() {
-		cluster.fork();
-	});
+    worker.on('exit', function (state) {
+        state == 0 || self(mod);
+    });
+
+}(process.cwd() + '/server.js');

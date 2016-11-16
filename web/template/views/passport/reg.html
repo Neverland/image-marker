@@ -1,0 +1,57 @@
+{% extends '../layout.html' %}
+
+	{% block static %}
+		<link rel="stylesheet" href="/style/main.css"/>
+		<style type="text/css">
+			#register { line-height: 24px; font-size: 14px; width: 450px; overflow: hidden; margin: 0 auto; }
+			#register label { color: #444; display: inline-block; width: 80px; text-align: right; margin-right: 10px;vertical-align:middle; }
+			#register input { border-radius:3px;  border: solid 1px #CCC; width: 280px; height: 18px; line-height:  18px; font-size: 14px; padding: 8px;}
+			#register p { margin-bottom: 10px; color: red; }
+			#register img { vertical-align: middle; }
+			#register button { height: 38px; border: solid 1px #ccc; font-size: 14px; font-weight: bold; width: 80px; }
+			#register button:hover { background: orange; color: #ffffff; cursor: pointer; }
+			#verify { width: 100px!important; }
+			#gender input {width: 15px; }
+			h1 { font-size: 18px; line-height: 40px; height: 40px; border-bottom: solid 1px #ccc; margin-bottom: 20px!important; padding-left: 20px; }
+		</style>
+		{% endblock %}
+		{% block content %}
+		<h1 class="box">欢迎注册!</h1>
+		<div id="register">
+			{% if data.msg %} <p>{{ data.msg }}</p> {% endif %}
+
+			{% if data.status!=='succ' %}
+				<form target="_top" action="/passport/reg" method="POST">
+					<input type="hidden" name="_csrf" value="{{ CSRF }}" />
+
+					<p>
+						<label for="email">邮箱 </label>
+						<input autocomplete="off" type="mail" name="email" required value="{% if data.d[4] %}{{ data.d[4] }}{% endif %}" /> *
+					</p>
+
+					<p>
+						<label for="password">密码 </label>
+						<input autocomplete="off" type="text" maxlength="12" name="password" requiredd /> *
+					</p>
+
+					<p>
+						<label for="repassword">确认密码 </label>
+						<input autocomplete="off" type="text"  maxlength="12" name="repass" required  /> *
+					</p>
+					<p>
+						<label for="verify">验证码 </label>
+						<input autocomplete="off" id="verify" maxlength="6" size="6" type="text" name="verify"/>
+						<img src="/static/verify.jpg" height="50"/>
+					</p>
+
+					<p>
+						<label></label>
+						<button type="submit">立即注册</button>
+					</p>
+				</form>
+			{% endif %}
+		</div>
+
+
+		{% include "../copyright.html" %}
+	{% endblock %}

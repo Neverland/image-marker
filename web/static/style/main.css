@@ -1,0 +1,12 @@
+.box {
+	width: 900px;
+	overflow: hidden;
+	height: 1%;
+	margin: 0 auto;
+}
+footer {
+	font-size: 14px;
+	clear: both; text-align: center;
+	padding-top: 20px;
+	border-top: solid 1px #ccc;
+}

@@ -1,0 +1,183 @@
+{% extends '../layout.html' %}
+	{% block static %}
+	<link rel="stylesheet" href="/style/animate.min.css" />
+	<link rel="stylesheet" href="/style/markpointer_default.css?v1" />
+	<script type="text/javascript" src="/script/bower_components/requirejs/require.min.js"></script>
+	<script>
+		require.config({
+			baseUrl: '/script/', 
+			paths: {
+				'jquery': 'bower_components/jQuery/dist/jquery.min',
+				'easing': 'im/b/jquery.easing.min',
+				'navbar': 'im/b/jquery.stickyNavbar.min'
+			}
+		});
+	</script>
+	<style>
+		#header {
+			background: #7E464C;
+			width: 100%;
+			display: block;
+			padding: 20px;
+			margin: 0;
+			height: auto;
+			border-bottom: #4B1319 2px solid;
+			position: relative;
+			top: 0px;
+		}
+		#nav {
+			text-align: center;
+			margin: 0px auto;
+			font-size: 1em;
+		}
+		#nav ul {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+			list-style-image: none;
+		}
+		#nav li {
+			margin-right: 0;
+			display: inline;
+		}
+		#nav ul li a {
+			text-decoration: none;
+			margin: 0px;
+			padding: 10px 15px 0px 15px;
+			color: #EEE;
+		}
+		#demo {
+			margin: 0 auto;
+			width: 900px;
+		}
+		#demo li {
+			float: left;
+			overflow: hidden;
+			display: block;
+			position: relative;
+		}
+		#demo img {
+			max-width: 900px;
+		}
+
+	</style>
+	<link rel="stylesheet" href="/style/main.css" />
+	<script src="/script/im/b/mp.min.js"></script>
+	{% endblock %}
+	{% block content %}
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-50144960-1', 'af.cm');
+	ga('send', 'pageview');
+
+</script>
+
+	<div id="header" class="header box">
+		<nav id="nav">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="#home">Home</a>
+				</li>
+				<li>
+					<a href="#about">About</a>
+				</li>
+				<li>
+					<a href="#services">Services</a>
+				</li>
+				<li>
+					<a href="#contact">Contact</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+<script type="text/javascript">
+	/*require(['jquery', 'easing', 'navbar'], function ($){
+		$(function (){
+			$('.header').stickyNavbar({
+				activeClass: "active",
+				sectionSelector: "scrollto",
+				navOffset: 0,
+				animDuration: 250,
+				startAt: 0,
+				easing: "linear",
+				animateCSS: true,
+				animateCSSRepeat: false,
+				bottomAnimation: false,
+				cssAnimation: "fadeInDown",
+				jqueryEffects: false,
+				jqueryAnim: "slideDown",
+				selector: "a",
+				mobile: false
+			});
+		})
+	})*/
+</script>
+	<div id="demo" class="box">
+		<ul>
+			{% for item in data -%}
+				<li><a href="/im#image={{ item.split('#')[0] }}"><img src="{{ item }}"  /></a></li>
+			{% endfor %}
+	</div>
+		<div>
+			{%if request.session.user%}
+			<span>欢迎你，{{ request.session.user.email }}</span>
+			<a href="/passport/loginout?email={{ request.session.user.email }}">登出</a>
+			{%endif%}
+
+		</div>
+{% include "../copyright.html" %}
+<script>
+!function (window, doc, undefined){
+
+	var demo = doc.getElementById('demo'),
+		imgs = [].slice.call(doc.getElementsByTagName('img'));
+
+
+	while(imgs.length){
+		var i = imgs.pop(),
+		id = i.src.split('#')[1];
+		imp.markPointer = new imp.IM(id, i);
+
+		!function (j, _id){
+			j.onmouseenter = function (e) {
+				e = imp.tk.getEvent(e);
+				imp.tk.stopEvent(e);
+
+				var t = e.currentTarget, i = e.relatedTarget || e.fromElement;
+				if (!imp.tk.contains(t, i) && t != i) {
+					try {
+						imp.markPointer.togglePointer(e, _id)
+					} catch (e) {}
+				}
+				return false
+			}
+
+			j.onmouseleave = function (e) {
+				e = imp.tk.getEvent(e);
+				imp.tk.stopEvent(e);
+				var t = e.currentTarget, i = e.relatedTarget || e.toElement;
+
+				if (!imp.tk.contains(t, i) && t != i) {
+					try {
+						imp.markPointer.togglePointer(e, _id)
+					} catch (e) {}
+				}
+				return false
+			}
+		}(i, id)
+
+	}
+
+
+
+
+}(this, document)
+
+
+</script>
+	{% endblock %}
+

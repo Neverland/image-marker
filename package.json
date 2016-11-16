@@ -1,40 +1,50 @@
 {
-  "name": "image-marker",
-  "version": "1.0.0",
-  "description": "image marker",
-  "main": "app.js",
+  "name": "im",
+  "version": "0.0.1",
+  "keywords": [],
+  "contributors": [
+    {
+      "name": "enix",
+      "email": "enix@foxmail.com",
+      "url": "https://github.com/neverland"
+    }
+  ],
   "dependencies": {
-    "express": "^3.4.8",
-    "jade": "^1.1.5",
-    "log4js": "^0.6.12",
+    "body-parser": "^1.0.2",
+    "captcha": "0.0.4",
+    "compression": "^1.0.2",
+    "connect": "^2.16.2",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^0.4.1",
+    "connect-multiparty": "^1.0.3",
+    "connect-redis": "^2.0.0",
+    "connect-timeout": "^1.1.0",
+    "cookie-parser": "^1.1.0",
+    "csurf": "^1.2.0",
+    "errorhandler": "^1.0.1",
+    "express": "^4.0.0",
+    "express-session": "^1.2.0",
+    "log4js": "^0.6.14",
+    "method-override": "^1.0.1",
     "mongojs": "^0.10.1",
-    "uglifyjs-middleware": "^1.0.1"
-  },
-  "dependencies": {
-    "jade": "~1.1.5",
-    "express": "~3.4.8",
-    "uglifyjs-middleware": "~1.0.1",
-    "mongojs": "~0.10.0",
-    "log4js": "~0.6.12"
+    "morgan": "^1.1.0",
+    "mysql": "^2.1.1",
+    "serve-favicon": "^2.0.0",
+    "serve-static": "^1.1.0",
+    "swig": "^1.3.2",
+    "uglifyjs-middleware": "~1.0.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Neverland/image-marker.git"
-  },
-  "keywords": [
-    "nodejs",
-    "mongodb",
-    "sqlite",
-    "mysql"
+  "description": "im",
+  "licenses": [
+    {
+      "type": "LGPL",
+      "url": "http://www.gnu.org/licenses/lgpl.html"
+    }
   ],
-  "author": "enix@foxmail.com",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Neverland/image-marker/issues"
-  },
-  "homepage": "https://github.com/Neverland/image-marker#readme"
+  "devDependencies": {
+    "bower": "^1.3.1"
+  }
 }
